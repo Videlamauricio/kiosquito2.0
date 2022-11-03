@@ -40,6 +40,7 @@
             this.btBorrar = new System.Windows.Forms.Button();
             this.btbuscar = new System.Windows.Forms.Button();
             this.btModificar = new System.Windows.Forms.Button();
+            this.btConfirmar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,12 +160,23 @@
             this.btModificar.UseVisualStyleBackColor = false;
             this.btModificar.Click += new System.EventHandler(this.btModificar_Click);
             // 
+            // btConfirmar
+            // 
+            this.btConfirmar.Location = new System.Drawing.Point(318, 6);
+            this.btConfirmar.Name = "btConfirmar";
+            this.btConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btConfirmar.TabIndex = 13;
+            this.btConfirmar.Text = "Confirmar";
+            this.btConfirmar.UseVisualStyleBackColor = true;
+            this.btConfirmar.Click += new System.EventHandler(this.btConfirmar_Click);
+            // 
             // Kiosquito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(557, 304);
+            this.Controls.Add(this.btConfirmar);
             this.Controls.Add(this.btModificar);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.btBorrar);
@@ -178,7 +190,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.dtProductos);
             this.Name = "Kiosquito";
-            this.Text = "Form1";
+            this.Text = "Kiosquito";
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,6 +211,7 @@
         private System.Windows.Forms.Button btBorrar;
         private System.Windows.Forms.Button btbuscar;
         private System.Windows.Forms.Button btModificar;
+        private System.Windows.Forms.Button btConfirmar;
     }
 }
 

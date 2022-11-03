@@ -33,24 +33,19 @@ namespace kiosquito2._0
         private void btCargar_Click(object sender, EventArgs e)
         {
             producto producto = new producto();
-            if (txtCodigo.Text != "" || txtNombre.Text != "" || txtPrecio.Text !="") ;
+            if (txtCodigo.Text != "" || txtNombre.Text != "" || txtPrecio.Text !="")
             {
-                try
-                {
+
                  producto.Codigo = txtCodigo.Text.ToUpper();
                     producto.Nombre = txtNombre.Text.ToUpper();
                     producto.Precio = Convert.ToInt32(txtPrecio.Text);
-                }
-                catch (Exception)
-                {
+                    productos.CargarProductos(producto);
 
-                }
 
 
             }
             
         }
-        bool a = false;
 
         private void btBorrar_Click(object sender, EventArgs e)
         {
@@ -64,12 +59,13 @@ namespace kiosquito2._0
             else
             {
                 txtCodigo.Focus();
+                txtCodigo.SelectAll();
              
             }
 
         }
-
-        private void btModificar_Click(object sender, EventArgs e)
+        bool Botom = false;
+        public void btModificar_Click(object sender, EventArgs e)
         {
                   producto cosas = new producto();
             cosas = productos.Buscarprod(txtCodigo.Text);
@@ -79,7 +75,7 @@ namespace kiosquito2._0
                 txtCodigo.Text = cosas.Codigo.ToUpper();
                 txtNombre.Text = cosas.Nombre;
                 txtPrecio.Text = cosas.Precio.ToString();
-                a = true;
+                Botom = true;
                 productos.BorrarProd(txtCodigo.Text);
             }
 
@@ -92,16 +88,38 @@ namespace kiosquito2._0
             if(cosas.Codigo !=null)
             {
                 txtCodigo.Text= cosas.Codigo.ToUpper();
-                txtNombre.Text = cosas.Codigo;
+                txtNombre.Text = cosas.Nombre;
                 txtPrecio.Text = cosas.Precio.ToString();
             }
-                         
+
+
           }
 
         public void btPerdidas_Click(object sender, EventArgs e)
         {
             Eliminados_perdidas formularionuevo = new Eliminados_perdidas();
             formularionuevo.ShowDialog();
+        }
+
+        private void btConfirmar_Click(object sender, EventArgs e)
+        {
+            producto producto = new producto();
+            if (Botom==true)
+            {
+                if(txtCodigo.Text != "" || txtNombre.Text != "" ||txtPrecio.Text !="")
+                {
+                    producto.Codigo = txtCodigo.Text.ToUpper();
+                    producto.Nombre = txtNombre.Text;
+                    producto.Precio = Convert.ToInt32(txtPrecio.Text);
+                    productos.Modificar(producto);
+
+                    BorrarPantalla();
+                    Botom = false;
+
+                     
+                }
+
+            }
         }
     }
 }

@@ -21,7 +21,20 @@ namespace Backend
             Leer_Datatable();
                
         }
-
+        public int BuscarFilaProductos(string cosas)
+        {
+            int fila = -1;
+            for (int i = 0; i < Datatable.Rows.Count; i++)
+            {
+                if (Datatable.Rows[i]["Codigo"].ToString() == cosas) { 
+                    
+                    fila = i;
+                    break;  
+                }    
+                
+            }
+        return fila;
+        }
 
 
 
@@ -45,10 +58,10 @@ namespace Backend
             return res;
         }
 
-        private bool Validar(producto productos)
+        private bool Validar(producto producto)
         {
             bool res = false;
-            int fila = BuscarFilaProductos(productos.Codigo);
+            int fila = BuscarFilaProductos(producto.Codigo);
             if(fila != -1)
             {
                 res = true;
@@ -61,6 +74,7 @@ namespace Backend
         {
             bool res = false;
             int fila = BuscarFilaProductos(cosas);
+
             if (fila != -1)
             {
                 Datatable.Rows[fila].Delete();
@@ -76,24 +90,13 @@ namespace Backend
 
 
 
-        public int BuscarFilaProductos(string cosas)
-        {
-            int fila = -1;
-            for (int i = 0; i < Datatable.Rows.Count; i++)
-            {
-                if (Datatable.Rows[i]["Codigo"].ToString() == cosas) { 
-                    
-                    fila = 1;
-                    break;  
-                }    
-                
-            }
-        return fila;
-        }
+
         private void Leer_Datatable()
         {
-            if (System.IO.File.Exists("Productos.xml")) ;
+            if (System.IO.File.Exists("Productos.xml"))
+            { 
             Datatable.ReadXml("Productos.xml");
+            }
         }
 
         public bool Modificar(producto productos)
