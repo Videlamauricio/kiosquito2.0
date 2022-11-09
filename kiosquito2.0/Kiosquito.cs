@@ -22,6 +22,7 @@ namespace kiosquito2._0
 
         }
 
+        // Borrado de Pantalla
         private void BorrarPantalla()
         {
             txtCodigo.Text = "";
@@ -30,6 +31,7 @@ namespace kiosquito2._0
            
         }
 
+        //boton para cargar 
         private void btCargar_Click(object sender, EventArgs e)
         {
             producto producto = new producto();
@@ -47,6 +49,7 @@ namespace kiosquito2._0
             
         }
 
+        //Boton Borrar
         private void btBorrar_Click(object sender, EventArgs e)
         {
             bool res = productos.BorrarProd(txtCodigo.Text.ToUpper());
@@ -65,6 +68,8 @@ namespace kiosquito2._0
 
         }
         bool Botom = false;
+
+        //Boton Modificar
         public void btModificar_Click(object sender, EventArgs e)
         {
                   producto cosas = new producto();
@@ -81,6 +86,8 @@ namespace kiosquito2._0
 
         
         }         
+
+        //Boton Buscar
           private void btbuscar_Click(object sender, EventArgs e)
           {
             producto cosas = new producto();
@@ -95,12 +102,15 @@ namespace kiosquito2._0
 
           }
 
+        //boton para ver el segundo DataGridView
         public void btPerdidas_Click(object sender, EventArgs e)
         {
             Eliminados_perdidas formularionuevo = new Eliminados_perdidas();
             formularionuevo.ShowDialog();
         }
 
+
+        //Boton para confirmar la modificacion del producto
         private void btConfirmar_Click(object sender, EventArgs e)
         {
             producto producto = new producto();

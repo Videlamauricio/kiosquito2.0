@@ -13,6 +13,8 @@ namespace Backend
 
         public Productos()
         {
+
+            //creo las columas de mi DataGridView
             Datatable.TableName = "Productos";
             Datatable.Columns.Add("Codigo",typeof (string));
             Datatable.Columns.Add("Nombre",typeof (string));
@@ -21,6 +23,8 @@ namespace Backend
             Leer_Datatable();
                
         }
+
+        // Metodo Buscar Por fila 
         public int BuscarFilaProductos(string cosas)
         {
             int fila = -1;
@@ -37,7 +41,7 @@ namespace Backend
         }
 
 
-
+        //metodo para cargar los productos
         public bool CargarProductos(producto productos)
         {
             bool res = false;
@@ -58,6 +62,7 @@ namespace Backend
             return res;
         }
 
+        //Metodos para validar el producto
         private bool Validar(producto producto)
         {
             bool res = false;
@@ -69,7 +74,7 @@ namespace Backend
             }
             return res;    
         }
-
+        //Metodo Para Borrar productos
         public bool BorrarProd(string cosas)
         {
             bool res = false;
@@ -99,6 +104,7 @@ namespace Backend
             }
         }
 
+        //metrodo para modificar un producto 
         public bool Modificar(producto productos)
         {
             bool res = false;
@@ -115,6 +121,7 @@ namespace Backend
 
         }
 
+        //metodo para buscar un producto
         public producto Buscarprod(string cosas)
         {
           producto producto = new producto();
